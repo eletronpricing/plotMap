@@ -7,18 +7,20 @@ import sys
 import numpy as np
 import struct
 import pandas as pd
-import plotMap
+from plotMap.plotMap import ArquivoShape, plotarMapa
 from datetime import datetime, timedelta
 
 
+dir_path = os.path.dirname(os.path.realpath(__file__)) 
+
 # Nome do arquivo com parâmetros do mapa.
-mapTemplate = 'templates/ChuvaPrevistaONS.dat'
+mapTemplate = os.path.join(dir_path, 'templates/ChuvaPrevistaONS.dat')
 
 # Objeto 'ArquivoShape' com os Estados do Brasil e bacias.
-shapeEstadosBrasil = plotMap.ArquivoShape(
-    nomeArquivo='shapes/BRA_adm1.shp', corLinha='gray', espLinha=0.1)
-shapeBaciasBrasil = plotMap.ArquivoShape(
-    nomeArquivo='shapes/Bacias.shp', corLinha='blue', espLinha=0.3)
+shapeEstadosBrasil = ArquivoShape(
+    nomeArquivo= os.path.join(dir_path,'shapes/BRA_adm1.shp'), corLinha='gray', espLinha=0.1)
+shapeBaciasBrasil = ArquivoShape(
+    nomeArquivo=os.path.join(dir_path,'shapes/Bacias.shp'), corLinha='blue', espLinha=0.3)
 listaShapes = [shapeEstadosBrasil, shapeBaciasBrasil]
 
 
@@ -165,7 +167,7 @@ def plotMapaONS(arquivo_input='', arquivo_output=''):
 
         print(f"Plotando mapa do arquivo {os.path.split(arquivo)[1]}...")
 
-        plotMap.plotarMapa(titulo=titulo_mapa,
+        plotarMapa(titulo=titulo_mapa,
                            lons=lons,
                            lats=lats,
                            dados=chuva,
