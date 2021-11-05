@@ -12,6 +12,10 @@ Em breve. Mas o arquivo 'exemplo.py' já lhe dará uma boa noção de como utili
 
 Matplotlib e Cartopy.
 
+Importante: para que o Cartopy funcione offline, é necessário instalar o seguinte pacote:
+
+https://github.com/conda-forge/cartopy_offlinedata-feedstock
+
 ## Licença:
 
 [Ver licença](LICENSE)
