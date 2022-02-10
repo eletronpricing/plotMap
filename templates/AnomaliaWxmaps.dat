@@ -10,7 +10,7 @@
 # **** Parâmetros do Mapa ****
 # Define a área visível do Mapa.
 # Devem ser fornecidos, na ordem: longitude Oeste, longitude Leste, latitude Sul e latitude Norte.
-mapa_coordenadas:-80,-28,-35,5
+mapa_coordenadas:-75,-35,-35,5
 
 # Define o tipo de gráfico do mapa.
 # Para dados que cobrem grandes áreas, é melhor utilizar o gráfico de contornos -> mapa_tipo:contornos.
@@ -24,7 +24,7 @@ mapa_tipo:contornos
 #           'horizontal' - barra de cores na horizontal
 #           'vertical' - barra de cores na vertical
 #           'none' - para não exibir barra de cores
-barra_cores_orientacao:vertical
+barra_cores_orientacao:horizontal
 
 # Posição da barra de cores em relação ao Mapa
 # Utilizar: 
@@ -32,7 +32,7 @@ barra_cores_orientacao:vertical
 #           'top'    -  Acima. Válido para 'barra_cores_orientacao=horizontal'.
 #           'left'   -  Esquerda. Válido para 'barra_cores_orientacao=vertical'.
 #           'righ'   -  Direira. Válido para 'barra_cores_orientacao=vertical'.
-barra_cores_posicao:left
+barra_cores_posicao:bottom
 
 # Valores da escala de cores
 # Devem ser fornecidos os intervalos para valores para a barra de cores
@@ -53,10 +53,10 @@ barra_cores_corMaximo:#4B4BE6
 
 # Ajustes finais da barra de cores
 # Distância entre a barra e o restante da figura, em percentual do eixo original
-barra_cores_dist:0.12
+barra_cores_dist:0.1
 
 # Percentual do tamanho do eixo para utilizar na barra de cores
-barra_cores_tam:0.025
+barra_cores_tam:0.05
 
 # Título da barra de cores.
 # Pode ser deixado em branco.
