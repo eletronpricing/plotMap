@@ -43,7 +43,7 @@ def check_nomearquivo(arquivo_input):
     """Verifica se o arquivo de chuva esta no mesmo formato definido pelo ONS
 
     Args:
-        arquivo_input (string): caminho para o arquivo
+        arquivo_input (string): caminho para o arquivo no formato MAPA_pDDMMYYaDDMMYY.dat
     """
 
     try:
@@ -61,7 +61,7 @@ def check_nomearquivo(arquivo_input):
 
 
 def check_nomearquivo_acc(arquivo_input):
-    """Verifica se o arquivo de chuva acumulada esta no formato correto
+    """Verifica se o arquivo de chuva acumulada esta no formato MAPA_pDDMMYYaDDMMYYaDDMMYY.dat
 
     Args:
         arquivo_input (string): caminho para o arquivo
@@ -84,7 +84,7 @@ def check_nomearquivo_acc(arquivo_input):
 
 
 def check_nomearquivo_diff(arquivo_input):
-    """Verifica se o arquivo de diferencial de chuva esta no formato correto
+    """Verifica se o arquivo de diferencial de chuva esta no formato MAPA_pDDMMYYpDDMMYYaDDMMYY.dat
 
     Args:
         arquivo_input (string): caminho para o arquivo
