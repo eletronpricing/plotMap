@@ -37,7 +37,7 @@ barra_cores_posicao:bottom
 # Valores da escala de cores
 # Devem ser fornecidos os intervalos para valores para a barra de cores
 # O número de valores fornecidos deve ser igual ao número de cores em 'barra_cores_codigos'
-barra_cores_valores:5,10,25,50,75,150,300,400,600,800
+barra_cores_valores:10,25,50,75,90,110,125,150,300,600
 
 # Código de cores utilizado
 # Utilizar o código hexadecimal das cores

@@ -159,7 +159,7 @@ def dados_Mapa_acc(arquivo_input):
     data_previsao_ini = (datetime.strptime(
         nome_arquivo.split('_')[1][8:14], "%d%m%y") - timedelta(1)).strftime('%d/%m/%Y')
     data_previsao_fim = (datetime.strptime(
-        nome_arquivo.split('_')[1][15:21], "%d%m%y"))
+        nome_arquivo.split('_')[1][15:21], "%d%m%y")).strftime('%d/%m/%Y')
 
     return nome_mapa, data_rodada, data_previsao_ini, data_previsao_fim
 
@@ -182,10 +182,10 @@ def dados_Mapa_diff(arquivo_input):
         nome_arquivo.split('_')[1][15:21], "%d%m%y") - timedelta(1)).strftime('%d/%m/%Y')
     try:
         data_previsao_fim = (datetime.strptime(
-            nome_arquivo.split('_')[1][15:21], "%d%m%y"))
+            nome_arquivo.split('_')[1][15:21], "%d%m%y")).strftime('%d/%m/%Y')
     except:
         data_previsao_fim = datetime.strptime(
-            nome_arquivo.split('_')[1][15:21], "%d%m%y")
+            nome_arquivo.split('_')[1][15:21], "%d%m%y").strftime('%d/%m/%Y')
 
     return nome_mapa, data_rodada1, data_rodada2, data_previsao_ini, data_previsao_fim
 
@@ -409,7 +409,7 @@ def plotMapaONS_diff(arquivo_input='', arquivo_output=''):
         chuva = np.reshape(chuva, (len(lats), -1))
 
         # Define o titulo do mapa a partir do nome do arquivo ONS (nomemapa_pDDMMYYaDDMMYY.dat)
-        titulo_mapa = f'Modelo {nome_mapa}\nAnomalia de precipitacao entre 12Z {data_previsao_ini} ate 12Z {data_previsao_fim}\nPrevisao das 00Z do dia {data_rodada1} vs 00Z do dia {data_rodada2}'
+        titulo_mapa = f'Modelo {nome_mapa}\nAnomalia % entre 12Z {data_previsao_ini} ate 12Z {data_previsao_fim}\nPrevisoes das 00Z do dia {data_rodada1} vs dia {data_rodada2}'
 
         # define o nome do arquivo de output
         if arquivo_output == '':
