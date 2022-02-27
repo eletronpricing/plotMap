@@ -182,7 +182,7 @@ def dados_Mapa_diff(arquivo_input):
         nome_arquivo.split('_')[1][15:21], "%d%m%y") - timedelta(1)).strftime('%d/%m/%Y')
     try:
         data_previsao_fim = (datetime.strptime(
-            nome_arquivo.split('_')[1][15:21], "%d%m%y")).strftime('%d/%m/%Y')
+            nome_arquivo.split('_')[1][22:28], "%d%m%y")).strftime('%d/%m/%Y')
     except:
         data_previsao_fim = datetime.strptime(
             nome_arquivo.split('_')[1][15:21], "%d%m%y").strftime('%d/%m/%Y')
