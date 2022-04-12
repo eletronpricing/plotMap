@@ -190,6 +190,72 @@ def dados_Mapa_diff(arquivo_input):
     return nome_mapa, data_rodada1, data_rodada2, data_previsao_ini, data_previsao_fim
 
 
+def plotMapaCSV(arquivo_input='', arquivo_output='', caption=''):
+    """Plota mapa a partir de arquivo csv
+
+    Raises:
+        NameError: [description]
+    """
+
+    # apaga arquivos antigos na pasta de output
+    deleta_arquivos('output')
+
+    # se nao for informado um arquivo de entrada, serao considerados os arquivos constantes da pasta 'input'
+    if arquivo_input == '':
+        lista_arquivos = lista_input()
+    else:
+        lista_arquivos = [arquivo_input]
+
+    for arquivo in lista_arquivos:
+
+        # abre arquivo e salva em dataframe
+        try:
+            df = pd.read_csv(arquivo)
+        except:
+            raise NameError(
+                'Erro ao tentar abrir/acessar arquivo: {}'.format(arquivo))
+
+        # sorting requerido pelo modulo de plotagem
+        df = df.sort_values(['lat', 'lon'])
+
+        # colunas para listas
+        lons = df['lon'].tolist()
+        lats = df['lat'].tolist()
+        chuva = df['prec'].tolist()
+
+        # remove duplicados das listas de lon e lat. Soh eh necessario inputar as listas de latitude e longitude.
+        # A funcao plotarmapa se encarrega de fazer a combinacao das series
+        lons = list(dict.fromkeys(lons))
+        lats = list(dict.fromkeys(lats))
+
+        # Converte listas de lon e lat em arrays numpy
+        lons = np.array(lons, dtype=float)
+        lats = np.array(lats, dtype=float)
+
+        # Transforma a lista 'chuva' em uma matriz e altera o seu 'formato' para compatibilidade com o número de longitudes
+        # e latitudes. Veja o método 'reshape' do 'numpy' para maiores detalhes.
+        chuva = np.array(chuva, dtype=float)
+        chuva = np.reshape(chuva, (len(lats), -1))
+
+        # define o nome do arquivo de output
+        if arquivo_output == '':
+            arquivo_destino = 'output/' + \
+                os.path.splitext(os.path.split(arquivo)[1])[0] + '.png'
+        else:
+            arquivo_destino = arquivo_output
+
+        print(f"Plotando mapa do arquivo {os.path.split(arquivo)[1]}...")
+
+        plotarMapa(titulo=caption,
+                   lons=lons,
+                   lats=lats,
+                   dados=chuva,
+                   modeloMapa=mapTemplate,
+                   destino=arquivo_destino,
+                   shapeFile=listaShapes
+                   )
+
+
 def plotMapaONS(arquivo_input='', arquivo_output=''):
     """Plota mapa a partir de arquivos .dat no formato ONS
 
